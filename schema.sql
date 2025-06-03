@@ -11,4 +11,3 @@ CREATE TABLE reports (
 CREATE INDEX idx_reports_date ON reports(date);
 CREATE INDEX idx_reports_serie ON reports(serie);
 CREATE INDEX idx_reports_officer ON reports(officer_id);
-

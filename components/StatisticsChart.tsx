@@ -32,4 +32,3 @@ export default function StatisticsChart() {
 
   return <Bar data={data} options={options} />
 }
-
