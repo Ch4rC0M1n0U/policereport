@@ -1,9 +1,14 @@
-import { Pool } from "pg"
+import { neon } from "@neondatabase/serverless"
 
-const pool = new Pool({
-  connectionString: process.env.NEON_DATABASE_URL,
-})
+const sql = neon(process.env.NEON_DATABASE_URL!)
 
 export default {
-  query: (text, params) => pool.query(text, params),
+  query: async (text: string, params: any[] = []) => {
+    try {
+      return await sql(text, params)
+    } catch (error) {
+      console.error("Database query error:", error)
+      throw error
+    }
+  },
 }
